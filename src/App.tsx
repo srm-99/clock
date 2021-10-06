@@ -1,25 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 
 // Components
-import Clock from "./pages/Clock/Clock";
+import Clock from "./pages/Clock";
 
 // Utils
-import { getDateObject } from "./utils/getDateObject";
+import { getColors } from "./utils/getColors";
 
-// Types
-import { FormattedDate } from "./types";
+// Styles
+import "./styles.css";
 
 function App() {
-    const [date, setDate] = useState<FormattedDate>(getDateObject(new Date()));
-
-    setInterval(() => {
-        setDate(getDateObject(new Date()));
-    }, 1000);
+    const currentColors = getColors(new Date().getDay());
+    console.log(currentColors);
 
     return (
-        <>
-            <Clock date={date} />
-        </>
+        <div
+            className="app"
+            style={{ backgroundColor: currentColors.mainBackground }}
+        >
+            <header
+                style={{ backgroundColor: currentColors.secondBackground }}
+            ></header>
+            <Clock currentColors={currentColors} />
+            <footer
+                style={{
+                    backgroundColor: currentColors.secondBackground,
+                    color: currentColors.darkFontColor,
+                }}
+            >
+                <p>Powered by: SRM-99</p>
+            </footer>
+        </div>
     );
 }
 
