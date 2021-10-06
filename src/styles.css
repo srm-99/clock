@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Bebas Neue", cursive;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    height: 100%;
+}
+
+.app {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+header {
+    height: 23px;
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    justify-content: right;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    padding-right: 10px;
+}
+
+footer > p {
+    font-size: 1.5rem;
+}
+
+/* Media Queries */
+
+/* big Desktop */
+@media (min-width: 1500px) {
+    html {
+        font-size: 18px;
+    }
+}
