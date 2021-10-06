@@ -1,12 +1,22 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
+
+// Utils
+import { getDateObject } from "../../utils/getDateObject";
 
 // Styles
 import "./styles.css";
 
 // Types
 import { ClockPropsType } from "./types";
+import { FormattedDate } from "../../types";
 
-const Clock: FC<ClockPropsType> = ({ date, currentColors }) => {
+const Clock: FC<ClockPropsType> = ({ currentColors }) => {
+    const [date, setDate] = useState<FormattedDate>(getDateObject(new Date()));
+
+    setInterval(() => {
+        setDate(getDateObject(new Date()));
+    }, 1000);
+
     return (
         <div className="clock-container">
             <div
