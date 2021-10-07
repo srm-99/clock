@@ -11,8 +11,6 @@ import "./styles.css";
 
 function App() {
     const currentColors = getColors(new Date().getDay());
-    console.log(currentColors);
-
     return (
         <div
             className="app"
